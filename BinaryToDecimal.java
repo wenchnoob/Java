@@ -16,12 +16,20 @@ public class BinaryToDecimal {
         String binary12 = "1100"; // should be 12
         System.out.printf("%d %d %d %d \n", BinaryToDecimal(binary10), BinaryToDecimal(binary5), BinaryToDecimal(binary12), BinaryToDecimal(binaryBig));
 
+
+
         // I do not understand how it takes less time for a longer string :/
         System.out.println(String.format("The time taken for a string of length %d is %f secs", binary10.length(), after1 - before1));
         System.out.println(String.format("The time taken for a string of length %d is %f secs", binaryBig.length(), after2 - before2));
 
 
-        System.out.println(String.format("The octoal to decimal conversion of 0x25 is %d", OctalToDecimal("25"))); // Should be 21
+        System.out.println(String.format("The octal to decimal conversion of 0x25 is %d", OctalToDecimal("25"))); // Should be 21
+        System.out.println(String.format("The deciaml conversion of 1100 using recursion is %d ", RecursiveBinaryToDecimal(binary12, 0))); // Should be 12
+    }
+
+    public static int RecursiveBinaryToDecimal(String binary, int depth){
+        if (depth > binary.length() - 1) return 0;
+        return Integer.valueOf(String.valueOf(binary.charAt(binary.length() - 1 - depth))) * (int)Math.pow(2, depth) + RecursiveBinaryToDecimal(binary, depth + 1);
     }
 
     public static int BinaryToDecimal(String binary) {
