@@ -3,23 +3,15 @@ public class Sorting {
 
     public static void main(String[] args) {
 
-        //Integer[] arr = {0,2,1,45,1,2,7,5,6,4};
-        //bubbleSort(arr);
-        //System.out.println(Arrays.toString(arr));
+        Integer[] arr = {0,2,1,45,1,2,7,5,6,4};
+        bubbleSort(arr);
+        System.out.println(Arrays.toString(arr));
 
-        //Integer[] arr2 = {0,2,1,45,1,2,7,5,6,4};
-        //selectionSort(arr2);
-        //System.out.println(Arrays.toString(arr2));
+        Integer[] arr2 = {0,2,1,45,1,2,7,5,6,4};
+        selectionSort(arr2);
+        System.out.println(Arrays.toString(arr2));
 
-        //System.out.println(binarySearch(arr2, 100, 0,arr2.length-1));
-
-        Integer[] arr3 = {12, 17, 34, 53, 56, 32, 12, 32, 43, 23};
-        //System.out.println(partition(arr3, 0, arr3.length - 1)+ " " + Arrays.toString(arr3));
-        quickSort(arr3, 0, arr3.length - 1);
-        System.out.println(Arrays.toString(arr3));
-
-
-
+        System.out.println(binarySearch(arr2, 100, 0,arr2.length-1));
     }
 
     public static Comparable binarySearch(Comparable[] arr, Comparable find, int f, int b){
