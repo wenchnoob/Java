@@ -22,25 +22,6 @@ public class Sorting {
 
     }
 
-    public static void quickSort(Comparable[] arr, int start, int end) {
-        if (start < end) {
-            int p = partition(arr, start, end);
-            quickSort(arr, start, p-1);
-            quickSort(arr, p+1, end);
-        }
-    }
-
-    public static int partition(Comparable[] arr, int start, int end) {
-        Comparable pivot = arr[end];
-        int beforePivot = start - 1;
-
-        for (int i = start; i < end; i++)
-            if (arr[i].compareTo(pivot) < 0) swap(arr, ++beforePivot, i);
-
-        swap(arr, ++beforePivot, end);
-        return beforePivot;
-    }
-
     public static Comparable binarySearch(Comparable[] arr, Comparable find, int f, int b){
         if (f <= b) {
             int mid = (b - f)/2 + f;

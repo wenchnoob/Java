@@ -13,7 +13,7 @@ public class PhilalandCoin {
     }
 
 
-    // Iterative solution
+    // Iterative solution #failed: test case unknown
     private static int countCoins(int coin) {
         int count = 0;
         do {
@@ -24,11 +24,10 @@ public class PhilalandCoin {
     }
 
 
-    // Recursive solution
+    // Recursive solution #failed: test case unknown
     private static int countCoins(int coin, int count) {
-        coin = coin - coin/2;
-        count++;
+        coin -= coin/2;
         if (coin == 1) return count;
-        return countCoins(coin, count);
+        return countCoins(coin, ++count);
     }
 }
