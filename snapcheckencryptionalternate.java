@@ -19,6 +19,7 @@ public class snapcheckencryptionalternate {
 	public static void main(String[] args)  {
 		try {
 			System.out.println(encrypt(args[0]));
+			System.out.println(decrypt(encrypt(args[0])));
 		} catch (IndexOutOfBoundsException ex) {
 			System.out.println("You did not provide text to be encrypted.");
 		}
@@ -36,6 +37,25 @@ public class snapcheckencryptionalternate {
 				encryptedString.append(encrypted.charAt(j));
 			}
 			encryptedString.append(" ");
+		}
+
+		return encryptedString.toString();
+	}
+
+	public static String decrypt(String s) {
+		String encrypted = s.transform(removeWhiteSpace);
+		double lengthRoot = Math.sqrt(encrypted.length());
+		int rows = (int)Math.floor(lengthRoot);
+		int cols = (int)Math.ceil(lengthRoot);
+
+		String[] tokens = s.split(" ");
+		
+		StringBuilder encryptedString = new StringBuilder();
+		for (int j = 0; j < cols; j++)
+		for (int i = 0; i < tokens.length; i++) {
+			try {
+				encryptedString.append(tokens[i].charAt(j));
+			} catch (StringIndexOutOfBoundsException ex) {}
 		}
 
 		return encryptedString.toString();
