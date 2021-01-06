@@ -43,21 +43,19 @@ public class snapcheckencryptionalternate {
 	}
 
 	public static String decrypt(String s) {
-		String encrypted = s.transform(removeWhiteSpace);
-		double lengthRoot = Math.sqrt(encrypted.length());
-		int rows = (int)Math.floor(lengthRoot);
-		int cols = (int)Math.ceil(lengthRoot);
+		double lengthRoot = Math.sqrt(s.transform(removeWhiteSpace).length());
+		int longestWord = (int)Math.ceil(lengthRoot);
 
 		String[] tokens = s.split(" ");
 		
-		StringBuilder encryptedString = new StringBuilder();
-		for (int j = 0; j < cols; j++)
+		StringBuilder decryptedString = new StringBuilder();
+		for (int j = 0; j < longestWord; j++)
 		for (int i = 0; i < tokens.length; i++) {
 			try {
-				encryptedString.append(tokens[i].charAt(j));
+				decryptedString.append(tokens[i].charAt(j));
 			} catch (StringIndexOutOfBoundsException ex) {}
 		}
 
-		return encryptedString.toString();
+		return decryptedString.toString();
 	}
 }
